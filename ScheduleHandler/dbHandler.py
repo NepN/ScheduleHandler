@@ -5,10 +5,9 @@ def ConnectDB(): # creates db if not existing
     cursor = connection.cursor() 
     return cursor; # return value of 'cursor' to line of fnc-call 
 
-def SetUpTable(cursor): # create necessary tables 
-    cursor.execute("""DROP TABLE IF EXISTS employee;""") # clean up before use 
+def SetUpTable(cursor): # create necessary tables if they aren't there already 
     cursor.execute("""
-        CREATE TABLE employee (
+        CREATE TABLE IF NOT EXISTS employee (
         staff_number INTEGER PRINMARY KEY, 
         fname VARCHAR(20)
         );"""
