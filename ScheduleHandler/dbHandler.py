@@ -16,6 +16,11 @@ def SetUpTable(target, table_name = "staff", index_field = "staff_id", name = "l
         )
     return; # return to line of fnc-call 
 
+def AddEntry(target,table_name = "staff", name = "TestUser1"):
+    target.execute("""INSERT INTO """ + table_name + """(staff_id,last_name)
+        VALUES (NULL, '""" + name + """');""")
+    return; 
+
 def GetTable(target,table_name = "staff"): 
     target.execute("SELECT * FROM " + table_name) 
     print("Table " + table_name + ":") 
