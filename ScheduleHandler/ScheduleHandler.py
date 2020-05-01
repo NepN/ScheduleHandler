@@ -1,8 +1,8 @@
-print("And now outsourcing them to their own file.") # 
+print("By now we can manipulate the names.") # 
 
 import sqlite3 
 
 from dbHandler import ConnectDB, SetUpTable
 
-cursor = ConnectDB() 
-SetUpTable(cursor) 
+cursor = ConnectDB("any") 
+SetUpTable(cursor,"staff","staff_id","last_name") 
