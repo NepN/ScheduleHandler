@@ -5,11 +5,12 @@ def ConnectDB(): # creates db if not existing
     cursor = connection.cursor() 
     return cursor; # return value of 'cursor' to line of fnc-call 
 
-def SetUpTable(cursor): # create necessary tables if they aren't there already 
+def SetUpTable(cursor, table_name = "staff", index_field = "staff_id", name = "last_name"): 
+    # add customizability with variables with default value 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS employee (
-        staff_number INTEGER PRINMARY KEY, 
-        fname VARCHAR(20)
+        CREATE TABLE IF NOT EXISTS """ + table_name + """(
+        """ + index_field + """ INTEGER PRIMARY KEY, 
+        """ + name + """ VARCHAR(20)
         );"""
         )
     return; # return to line of fnc-call 
