@@ -18,8 +18,8 @@ def setup_table(target, table_name = "staff", index_field = "staff_id", name = "
     return; # return to line of fnc-call 
 
 def add_entry(target,table_name = "staff", name = "TestUser1"):
-    target.execute("""INSERT INTO '%s' (staff_id,last_name)
-        VALUES (NULL, '%s');""" % (table_name,name) )
+    target.execute("""INSERT INTO '%(table_name)s' (staff_id,last_name)
+        VALUES (NULL, '%(name)s');""" % { 'table_name': table_name, 'name': name} )
     return; 
 
 def get_table(target,table_name = "staff"): 
