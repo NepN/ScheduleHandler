@@ -17,6 +17,10 @@ def setup_table(target, table_name = "staff", index_field = "staff_id", name = "
         )
     return; # return to line of fnc-call 
 
+def add_column(target,table_name = "staff", column_name = "dateof_entry", data_type = "VARCHAR(20)"): 
+    target.execute("""ALTER TABLE {} ADD IF NOT EXISTS {} {};""".format(table_name,column_name,data_type) ) 
+    return; 
+
 def add_entry(target,table_name = "staff", name = "TestUser1"):
     target.execute("""INSERT INTO {} (staff_id,last_name)
         VALUES (NULL, '{}');"""
